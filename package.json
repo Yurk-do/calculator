@@ -1,0 +1,19 @@
+{
+  "name": "calculator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yurk-do/calculator.git"
+  },
+  "author": "Yurk-do",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Yurk-do/calculator/issues"
+  },
+  "homepage": "https://github.com/Yurk-do/calculator#readme"
+}
