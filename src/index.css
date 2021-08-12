@@ -1,0 +1,131 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+button {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+}
+
+body {
+  font-size: 14px;
+  background-color: #222222;
+}
+
+#main-container {
+  width: 326px;
+  margin: 50px auto 0 auto;
+  border: 1px solid black;
+  padding: 3px;
+  background-color: #e6e6e6;
+}
+
+#header {
+  margin-top: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.title-app {
+  padding-left: 2px;
+}
+
+.btn-control-window {
+  margin-left: 15px;
+}
+
+.btn-control > img {
+  max-width: 20px;
+  max-height: 20px;
+}
+
+.header-top {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.header-bottom {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.header-bottom-left {
+  flex-basis: 60%;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.name-type-view {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+#main-input-container {
+  margin-top: 30px;
+  width: 100%;
+  height: 70px;
+}
+
+#main-input {
+  height: 100%;
+  width: 100%;
+  font-size: 40px;
+  border: 2px solid black;
+  background-color: #e6e6e6;
+}
+
+.box-memory {
+  margin: 10px 0px;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  font-weight: 500;
+}
+
+.box-btn-main-table {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  grid-gap: 3px;
+}
+
+.btn-main-table {
+  height: 60px;
+  border-radius: 0;
+  border-collapse: collapse;
+  font-size: 15px;
+  background-color: #f0f0f0;
+}
+
+.btn-main-table > img {
+  max-width: 20px;
+}
+
+.btn-numbers {
+  background-color: #fafafa;
+  font-size: 18px;
+  font-weight: 600;
+}
+.btn-equals {
+  background-color: #8abae0;
+}
+
+.btn-no-active {
+  opacity: 0.3;
+}
+
+.btn-main-table:hover {
+    background-color: grey;
+    cursor: pointer;
+}
+
+.btn-equals:hover {
+    background-color: #dae08a;
+  }
