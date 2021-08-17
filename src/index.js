@@ -17,7 +17,16 @@ function setNumbers(inputData, outputData) {
 }
 
 function setDot(outputData) {
-  if (!/\./.test(outputData.innerText)) {
+  if (
+    outputData.innerText.match(/\.+?/g) &&
+    outputData.innerText.match(/\.+?/g).length >= 2
+  ) {
+    return;
+  }
+  if (
+    !/\./.test(outputData.innerText) ||
+    /[\+\-\*\/]/.test(outputData.innerText.slice(1))
+  ) {
     outputData.innerText += ".";
   }
 }
@@ -56,6 +65,15 @@ function deleteData(outputData) {
   }
 }
 
+function setArithmeticOperation(eventData, outputData) {
+  if (/[\+\-\*\/]/.test(outputData.innerText.slice(1))) {
+    outputData.innerText = executeCalculation(outputData);
+    outputData.innerText += eventData.dataset.arithmeticOperation;
+  } else {
+    outputData.innerText += eventData.dataset.arithmeticOperation;
+  }
+}
+
 function setOutputData(eventData, outputData) {
   if (eventData.dataset.numbers) {
     setNumbers(eventData.innerText, outputData);
@@ -72,18 +90,34 @@ function setOutputData(eventData, outputData) {
   if (eventData.dataset.delete) {
     deleteData(outputData);
   }
-  if (
-    eventData.dataset.arithmeticOperation &&
-    !outputData.innerText[outputData.innerText.length - 1].match(/[\+\-\*\/]/)
-  ) {
-    outputData.innerText += eventData.dataset.arithmeticOperation;
+  if (eventData.dataset.arithmeticOperation) {
+    setArithmeticOperation(eventData, outputData);
   }
 }
 
-function executeCalculation(eventData, outputData) {
-  if (eventData.dataset.equality) {
-    outputData.innerText = eval(outputData.innerText);
+function getTypeOperation(outputData) {
+  const [typeOperation] = outputData.innerText.slice(1).match(/[\+\-\*\/]/);
+  return typeOperation;
+}
+
+function executeCalculation(outputData) {
+  let typeOperation = getTypeOperation(outputData);
+  let result = outputData.innerText.split(typeOperation);
+  switch (typeOperation) {
+    case "/":
+      result = parseFloat(result[0]) / parseFloat(result[1]);
+      break;
+    case "*":
+      result = parseFloat(result[0]) * parseFloat(result[1]);
+      break;
+    case "+":
+      result = parseFloat(result[0]) + parseFloat(result[1]);
+      break;
+    case "-":
+      result = parseFloat(result[0]) - parseFloat(result[1]);
+      break;
   }
+  return result;
 }
 
 function calculator(event) {
@@ -99,8 +133,9 @@ function calculator(event) {
   if (!eventData.dataset.equality || !eventData.dataset.arithmeticOperation) {
     setOutputData(eventData, outputData);
   }
-
-  executeCalculation(eventData, outputData);
+  if (eventData.dataset.equality) {
+    outputData.innerText = executeCalculation(outputData);
+  }
 }
 
 boxBtn.addEventListener("click", calculator);
