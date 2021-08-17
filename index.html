@@ -7,6 +7,14 @@
     <title>Calculator</title>
   </head>
   <body>
+    <h1 class="description">
+      Рабочие клавиши: CE , C , . (плавающая точка), +/- , / , * , + , - , = ,1,2,3,4,5,6,7,9,0. Запрещен
+      ввод двух математических операндов подряд: --,++,**,//. С учетом этого
+      отсутствует возможность вычитания отрицательного числа из отрицательного
+      числа. Иные математические операции с отрицательными числами возможны. Для
+      модификации числа в отрицательное и обратно необходимо использовать
+      клавишу "+/-" (клавиша "-" используеся для вычитания).
+    </h1>
     <div id="main-container">
       <header id="header">
         <section class="header-top">
@@ -40,29 +48,125 @@
           </div>
         </section>
       </header>
-        <div id="main-input-container">
-          <input id="main-input" type="text" />
-        </div>
-        <section class="box-operations-btn">
-          <section class="box-memory">
-            <button class="btn-memory btn-no-active ">MC</button
-            ><button class="btn-memory btn-no-active ">MR</button
-            ><button class="btn-memory">M+</button
-            ><button class="btn-memory">M-</button
-            ><button class="btn-memory">MS</button
-            ><button class="btn-memory btn-no-active ">M-</button>
-          </section>
-          <section class="box-btn-main-table">
-            <button class="btn-main-table"><img src="./icons/arithmetic operations/icons8-percentage-24.png" alt="icon"></button><button class="btn-main-table">CE</button><button class="btn-main-table">C</button
-            ><button class="btn-main-table"><img src="./icons/arithmetic operations/icons8-clear-symbol-24.png" alt="icon"></button><button class="btn-main-table"><img src="./icons/arithmetic operations/icons8-formula-fx-50.png" alt="icon"></button><button class="btn-main-table"><img src="./icons/arithmetic operations/icons8-square-number-24.png" alt="icon"></button
-            ><button class="btn-main-table"><img src="./icons/arithmetic operations/icons8-square-root-24.png" alt="icon"></button><button class="btn-main-table btn-arithmetic-operation"><img src="./icons/arithmetic operations/icons8-divide-30.png" alt="icon"></button><button class="btn-main-table btn-numbers">7</button
-            ><button class="btn-main-table btn-numbers">8</button><button class="btn-main-table btn-numbers">9</button> <button class="btn-main-table btn-arithmetic-operation"><img src="./icons/arithmetic operations/icons8-multiply-24.png" alt="icon"></button
-            ><button class="btn-main-table btn-numbers">4</button><button class="btn-main-table btn-numbers">5</button><button class="btn-main-table btn-numbers">6</button
-            ><button class="btn-main-table btn-arithmetic-operation"><img src="./icons/arithmetic operations/icons8-subtract-24.png" alt="icon"></button><button class="btn-main-table btn-numbers">1</button> <button class="btn-main-table btn-numbers">2</button
-            ><button class="btn-main-table btn-numbers">3</button><button class="btn-main-table btn-arithmetic-operation"><img src="../icons/arithmetic operations/icons8-plus-math-24.png" alt="icon"></button><button class="btn-main-table btn-numbers"><img src="./icons/arithmetic operations/icons8-plus-slash-minus-32.png" alt="icon"></button
-            ><button class="btn-main-table btn-numbers">0</button><button class="btn-main-table btn-numbers">,</button><button class="btn-main-table btn-arithmetic-operation btn-equals"><img src="./icons/arithmetic operations/icons8-equal-sign-24.png" alt="icon"></button>
-          </section>
+      <div id="main-output-container">
+        <div id="output">0</div>
+      </div>
+      <section class="box-operations-btn">
+        <section class="box-memory">
+          <button class="btn-memory btn-no-active">MC</button
+          ><button class="btn-memory btn-no-active">MR</button
+          ><button class="btn-memory">M+</button
+          ><button class="btn-memory">M-</button
+          ><button class="btn-memory">MS</button
+          ><button class="btn-memory btn-no-active">M-</button>
         </section>
-     </div>
+        <section class="box-btn-main-table">
+          <button class="btn-main-table">
+            <img
+              src="./icons/arithmetic operations/icons8-percentage-24.png"
+              alt="icon"
+            /></button
+          ><button class="btn-main-table" data-clear="true">CE</button
+          ><button class="btn-main-table" data-clear="true">C</button
+          ><button class="btn-main-table" data-delete="true">
+            <img
+              src="./icons/arithmetic operations/icons8-clear-symbol-24.png"
+              alt="icon"
+              data-delete="true"
+            /></button
+          ><button class="btn-main-table">
+            <img
+              src="./icons/arithmetic operations/icons8-formula-fx-50.png"
+              alt="icon"
+            /></button
+          ><button class="btn-main-table">
+            <img
+              src="./icons/arithmetic operations/icons8-square-number-24.png"
+              alt="icon"
+            /></button
+          ><button class="btn-main-table">
+            <img
+              src="./icons/arithmetic operations/icons8-square-root-24.png"
+              alt="icon"
+            /></button
+          ><button
+            class="btn-main-table btn-arithmetic-operation"
+            data-arithmetic-operation="/"
+          >
+            <img
+              src="./icons/arithmetic operations/icons8-divide-30.png"
+              alt="icon"
+              data-arithmetic-operation="/"
+            /></button
+          ><button class="btn-main-table btn-numbers" data-numbers="true">
+            7</button
+          ><button class="btn-main-table btn-numbers" data-numbers="true">
+            8</button
+          ><button class="btn-main-table btn-numbers" data-numbers="true">
+            9
+          </button>
+          <button
+            class="btn-main-table btn-arithmetic-operation"
+            data-arithmetic-operation="*"
+          >
+            <img
+              src="./icons/arithmetic operations/icons8-multiply-24.png"
+              alt="icon"
+              data-arithmetic-operation="*"
+            /></button
+          ><button class="btn-main-table btn-numbers" data-numbers="true">
+            4</button
+          ><button class="btn-main-table btn-numbers" data-numbers="true">
+            5</button
+          ><button class="btn-main-table btn-numbers" data-numbers="true">
+            6</button
+          ><button
+            class="btn-main-table btn-arithmetic-operation"
+            data-arithmetic-operation="-"
+          >
+            <img
+              src="./icons/arithmetic operations/icons8-subtract-24.png"
+              alt="icon"
+              data-arithmetic-operation="-"
+            /></button
+          ><button class="btn-main-table btn-numbers" data-numbers="true">
+            1
+          </button>
+          <button class="btn-main-table btn-numbers" data-numbers="true">
+            2</button
+          ><button class="btn-main-table btn-numbers" data-numbers="true">
+            3</button
+          ><button
+            class="btn-main-table btn-arithmetic-operation"
+            data-arithmetic-operation="+"
+          >
+            <img
+              src="../icons/arithmetic operations/icons8-plus-math-24.png"
+              alt="icon"
+              data-arithmetic-operation="+"
+            /></button
+          ><button class="btn-main-table btn-numbers" data-plus-minus="true">
+            <img
+              src="./icons/arithmetic operations/icons8-plus-slash-minus-32.png"
+              alt="icon"
+              data-plus-minus="true"
+            /></button
+          ><button class="btn-main-table btn-numbers" data-numbers="true">
+            0</button
+          ><button class="btn-main-table btn-numbers" data-dot="true">,</button
+          ><button
+            class="btn-main-table btn-arithmetic-operation btn-equals"
+            data-equality="true"
+          >
+            <img
+              src="./icons/arithmetic operations/icons8-equal-sign-24.png"
+              alt="icon"
+              data-equality="true"
+            />
+          </button>
+        </section>
+      </section>
+    </div>
+    <script src="./src/index.js"></script>
   </body>
 </html>

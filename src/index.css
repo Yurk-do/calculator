@@ -4,6 +4,11 @@
   box-sizing: border-box;
 }
 
+p {
+  margin: 0;
+  padding: 0;
+}
+
 button {
   margin: 0;
   padding: 0;
@@ -14,6 +19,13 @@ button {
 body {
   font-size: 14px;
   background-color: #222222;
+}
+
+.description {
+  font-size: 25px;
+  color: white;
+  text-align: justify;
+
 }
 
 #main-container {
@@ -68,18 +80,22 @@ body {
   font-weight: 700;
 }
 
-#main-input-container {
-  margin-top: 30px;
+#main-output-container {
   width: 100%;
-  height: 70px;
+  min-height: 70px;
 }
 
-#main-input {
+#output {
   height: 100%;
   width: 100%;
   font-size: 40px;
-  border: 2px solid black;
   background-color: #e6e6e6;
+  text-align: right;
+  word-wrap: break-word
+}
+
+#output:focus {
+  outline: none !important;
 }
 
 .box-memory {
@@ -92,7 +108,7 @@ body {
 
 .box-btn-main-table {
   display: grid;
-  grid-template-columns: repeat(4,1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-gap: 3px;
 }
 
@@ -122,10 +138,10 @@ body {
 }
 
 .btn-main-table:hover {
-    background-color: grey;
-    cursor: pointer;
+  background-color: grey;
+  cursor: pointer;
 }
 
 .btn-equals:hover {
-    background-color: #dae08a;
-  }
+  background-color: #dae08a;
+}
